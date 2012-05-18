@@ -1,0 +1,23 @@
+<package>
+  <description brief="osg_interactive_markers">
+	osg_interactive_markers is a library that creates and manages interaction with Interactive Markers in OpenSceneGraph
+  </description>
+  <author>Mario Prats</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/osg_interactive_markers</url>
+
+  <depend package="roscpp"/>
+  <depend package="osg_markers"/>
+  <depend package="osg_utils"/>
+  <depend package="interactive_markers"/>
+  <rosdep name="libopenscenegraph"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -losg_interactive_markers"/>
+  </export>
+
+
+</package>
+
+

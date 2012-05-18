@@ -1,0 +1,11 @@
+<stack>
+  <description brief="visualization_osg">
+  visualization_osg is a stack providing support for visualization of geometry using the OpenSceneGraph rendering engine.
+  </description>
+  <author>Maintained by Mario Prats</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/visualization_osg</url>
+  <depend stack="ros" />
+
+</stack>

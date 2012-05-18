@@ -1,0 +1,22 @@
+<package>
+  <description brief="osg_utils">
+	A library that provides helper classes and functions for use in OpenSceneGraph visualization frontends
+  </description>
+  <author>Mario Prats</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/osg_utils</url>
+
+  <depend package="roscpp"/>
+  <depend package="rostime"/>
+  <depend package="geometry_msgs"/>
+  <depend package="tf"/>
+  <rosdep name="libopenscenegraph"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -losg_utils"/>
+  </export>
+
+</package>
+
+

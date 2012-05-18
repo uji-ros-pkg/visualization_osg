@@ -1,0 +1,21 @@
+<package>
+  <description brief="osg_markers">
+	osg_markers is a library that creates OpenSceneGraph geometry from ROS Markers messages
+  </description>
+  <author>Mario Prats</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/osg_markers</url>
+
+  <depend package="roscpp"/>
+  <depend package="visualization_msgs"/>
+  <depend package="tf"/>
+  <rosdep name="libopenscenegraph"/>
+
+  <export>
+	<cpp cflags="-I${prefix}/src" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -losg_markers"/>
+  </export>
+
+</package>
+
+
