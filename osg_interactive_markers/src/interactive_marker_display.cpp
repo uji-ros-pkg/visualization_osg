@@ -32,6 +32,8 @@
 #include "osg_interactive_markers/interactive_marker_display.h"
 #include "osg_interactive_markers/interactive_marker_client.h"
 
+#include <osg_utils/frame_manager.h>
+
 #include <tf/transform_listener.h>
 
 namespace osg_interactive_markers
@@ -375,9 +377,8 @@ void InteractiveMarkerDisplay::targetFrameChanged()
 
 void InteractiveMarkerDisplay::fixedFrameChanged()
 {
-	//FIXME: get target frame from frame_manager
-	tf_filter_.setTargetFrame( "/base_link");
-	tf_pose_filter_.setTargetFrame( "/base_link" );
+	tf_filter_.setTargetFrame(osg_utils::FrameManager::instance()->getFixedFrame());
+	tf_pose_filter_.setTargetFrame(osg_utils::FrameManager::instance()->getFixedFrame());
 	reset();
 }
 

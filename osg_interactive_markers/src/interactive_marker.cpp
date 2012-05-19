@@ -366,9 +366,7 @@ void InteractiveMarker::publishFeedback(visualization_msgs::InteractiveMarkerFee
 	}
 	else
 	{
-		//feedback.header.frame_id = vis_manager_->getFixedFrame();
-		//FIXME
-		feedback.header.frame_id = std::string("fixed_frame");
+		feedback.header.frame_id = std::string(osg_utils::FrameManager::instance()->getFixedFrame());
 		feedback.header.stamp = ros::Time::now();
 
 		osg::Vec3d world_position = osg_utils::getWorldCoords(tf_node_)->getTrans();
