@@ -33,19 +33,23 @@ int main(int argc, char *argv[])
    boost::shared_ptr<FrameManager> frame_manager = FrameManager::instance();
    frame_manager->setFixedFrame("/base_link");
    InteractiveMarkerDisplay marker_cli("osg_im","/basic_controls/update", root, *(frame_manager->getTFClient()));
-   marker_cli.fixedFrameChanged();
-
 
    viewer.realize();
    viewer.frame();
-
+    
+    ros::WallTime last_wall_time = ros::WallTime::now();
+    ros::Time last_ros_time = ros::Time::now();
     while( !viewer.done() && ros::ok())
     {
 	ros::spinOnce();
         
         viewer.frame();
        
-	marker_cli.update(1, 1);
+        ros::WallTime current_wall_time=ros::WallTime::now();
+        ros::Time current_ros_time=ros::Time::now();
+	marker_cli.update((current_wall_time-last_wall_time).toSec(), (current_ros_time-last_ros_time).toSec());
+	last_wall_time=current_wall_time;
+	last_ros_time=current_ros_time;
     }
 
 
