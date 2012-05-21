@@ -54,7 +54,6 @@ void TextViewFacingMarker::onNewMessage(const MarkerConstPtr& old_message, const
 
 	if (!text_)
 	{
-		std::cerr << "Creating text" << std::endl;
 		geode_= new osg::Geode;
 		text_ = new osgText::Text;
 		text_->setFont("/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf");
@@ -75,10 +74,7 @@ void TextViewFacingMarker::onNewMessage(const MarkerConstPtr& old_message, const
 		scene_node_->asGroup()->addChild(geode_);
 	}
 
-	std::cerr << "Position is : " << new_message->pose.position.x << " " << new_message->pose.position.y << " " << new_message->pose.position.z << std::endl;
-	std::cerr << "Scale is : " << new_message->scale.x << " " << new_message->scale.y << " " << new_message->scale.z << std::endl;
 	setPosition(osg::Vec3d(new_message->pose.position.x, new_message->pose.position.y, new_message->pose.position.z));
-	setOrientation(osg::Quat(M_PI_2, osg::Vec3d(0,1,0)));
 	//setScale(osg::Vec3d(new_message->scale.x, new_message->scale.y, new_message->scale.z));
 }
 
