@@ -29,7 +29,7 @@
  * - May 2012: Port to OpenSceneGraph. Mario Prats
  */
 
-
+#include <ros/assert.h>
 #include "text_view_facing_marker.h"
 
 #include <osg/Vec3>

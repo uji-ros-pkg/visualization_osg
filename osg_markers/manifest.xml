@@ -7,6 +7,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/osg_markers</url>
 
+  <depend package="roslib"/>
   <depend package="roscpp"/>
   <depend package="visualization_msgs"/>
   <depend package="tf"/>

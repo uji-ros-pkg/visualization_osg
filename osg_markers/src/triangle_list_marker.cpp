@@ -29,6 +29,7 @@
  * - May 2012: Port to OpenSceneGraph. Mario Prats
  */
 
+#include <ros/assert.h>
 #include "triangle_list_marker.h"
 #include <osg/PositionAttitudeTransform>
 

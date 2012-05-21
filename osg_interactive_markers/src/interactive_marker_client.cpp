@@ -29,6 +29,7 @@
  * - May 2012: Port to OpenSceneGraph. Mario Prats
  */
 
+#include <ros/ros.h>
 #include "osg_interactive_markers/interactive_marker_client.h"
 
 namespace osg_interactive_markers

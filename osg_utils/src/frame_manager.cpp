@@ -135,10 +135,15 @@ bool FrameManager::transform(const std::string& frame, ros::Time time, const geo
 		return false;
 	}
 
+#if ROS_VERSION_MINIMUM(1, 8, 0)
+	//ROS Fuerte version
+	bt_position = pose_out.asBt().getOrigin();
+	bt_orientation = pose_out.asBt().getRotation();
+#else
 	bt_position = pose_out.getOrigin();
-	position = osg::Vec3d(bt_position.x(), bt_position.y(), bt_position.z());
-
 	bt_orientation = pose_out.getRotation();
+#endif
+	position = osg::Vec3d(bt_position.x(), bt_position.y(), bt_position.z());
 	orientation = osg::Quat( bt_orientation.x(), bt_orientation.y(), bt_orientation.z(), bt_orientation.w() );
 
 	return true;
