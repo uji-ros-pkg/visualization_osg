@@ -40,6 +40,7 @@ namespace osg_markers
 
 TextViewFacingMarker::TextViewFacingMarker(osg::Node* parent_node)
 : MarkerBase(parent_node)
+, text_(0)
 {
 }
 
@@ -53,13 +54,16 @@ void TextViewFacingMarker::onNewMessage(const MarkerConstPtr& old_message, const
 
 	if (!text_)
 	{
+		std::cerr << "Creating text" << std::endl;
 		geode_= new osg::Geode;
 		text_ = new osgText::Text;
 		text_->setFont("/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf");
 		text_->setCharacterSize(0.3);
 		text_->setPosition(osg::Vec3d(0,0,0));
 		text_->setColor(osg::Vec4d(new_message->color.r, new_message->color.g, new_message->color.b, new_message->color.a));
-		text_->setAxisAlignment(osgText::Text::SCREEN);
+		//For some reason SCREEN alignment doesn't work under draggers :(
+		//text_->setAxisAlignment(osgText::Text::SCREEN);
+		text_->setAxisAlignment(osgText::Text::REVERSED_XZ_PLANE);
 
 		// reproduce outline bounding box compute problem with backdrop on.
 		//text_->setBackdropType(osgText::Text::OUTLINE);
@@ -69,10 +73,12 @@ void TextViewFacingMarker::onNewMessage(const MarkerConstPtr& old_message, const
 		text_->setText(new_message->text);
 		geode_->addDrawable(text_);
 		scene_node_->asGroup()->addChild(geode_);
-
 	}
 
+	std::cerr << "Position is : " << new_message->pose.position.x << " " << new_message->pose.position.y << " " << new_message->pose.position.z << std::endl;
+	std::cerr << "Scale is : " << new_message->scale.x << " " << new_message->scale.y << " " << new_message->scale.z << std::endl;
 	setPosition(osg::Vec3d(new_message->pose.position.x, new_message->pose.position.y, new_message->pose.position.z));
+	setOrientation(osg::Quat(M_PI_2, osg::Vec3d(0,1,0)));
 	//setScale(osg::Vec3d(new_message->scale.x, new_message->scale.y, new_message->scale.z));
 }
 
