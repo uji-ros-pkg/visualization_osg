@@ -73,6 +73,9 @@ InteractiveMarker::InteractiveMarker( InteractiveMarkerDisplay *owner, osg::Node
 
 InteractiveMarker::~InteractiveMarker()
 {
+	osg::Group *root=reference_node_->getParent(0);
+	if (root->getNumChildren()>0)
+		root->removeChildren(0,root->getNumChildren());
 }
 
 void InteractiveMarker::reset()

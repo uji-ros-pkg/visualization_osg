@@ -187,6 +187,8 @@ InteractiveMarkerControl::InteractiveMarkerControl(  const visualization_msgs::I
 
 InteractiveMarkerControl::~InteractiveMarkerControl()
 {
+	if (int_marker_node_->getNumChildren()>0)
+		int_marker_node_->removeChildren(0,int_marker_node_->getNumChildren());
 }
 
 void InteractiveMarkerControl::setVisible( bool visible )
