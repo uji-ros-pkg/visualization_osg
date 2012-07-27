@@ -347,15 +347,17 @@ void InteractiveMarker::publishFeedback(visualization_msgs::InteractiveMarkerFee
 
 	if ( frame_locked_ )
 	{
+		osg::Matrixd transform=int_marker_node_->getMatrix();
+		
 		feedback.header.frame_id = reference_frame_;
 		feedback.header.stamp = reference_time_;
-		feedback.pose.position.x = position_.x();
-		feedback.pose.position.y = position_.y();
-		feedback.pose.position.z = position_.z();
-		feedback.pose.orientation.x = orientation_.x();
-		feedback.pose.orientation.y = orientation_.y();
-		feedback.pose.orientation.z = orientation_.z();
-		feedback.pose.orientation.w = orientation_.w();
+		feedback.pose.position.x = transform.getTrans().x();
+		feedback.pose.position.y = transform.getTrans().y();
+		feedback.pose.position.z = transform.getTrans().z();
+		feedback.pose.orientation.x = transform.getRotate().x();
+		feedback.pose.orientation.y = transform.getRotate().y();
+		feedback.pose.orientation.z = transform.getRotate().z();
+		feedback.pose.orientation.w = transform.getRotate().w();
 
 		feedback.mouse_point_valid = mouse_point_valid;
 		if( mouse_point_valid )
@@ -369,6 +371,7 @@ void InteractiveMarker::publishFeedback(visualization_msgs::InteractiveMarkerFee
 	}
 	else
 	{
+		//TODO: This is probably wrong... still not tested
 		feedback.header.frame_id = std::string(osg_utils::FrameManager::instance()->getFixedFrame());
 		feedback.header.stamp = ros::Time::now();
 
