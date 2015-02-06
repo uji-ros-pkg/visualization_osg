@@ -34,11 +34,11 @@
 #include "osg_interactive_markers/interactive_marker.h"
 #include "osg_interactive_markers/draggers.h" 
 
-#include <shape_marker.h>
-#include <arrow_marker.h>
-#include "text_view_facing_marker.h"
-#include "triangle_list_marker.h"
-#include "mesh_resource_marker.h"
+#include <osg_markers/shape_marker.h>
+#include <osg_markers/arrow_marker.h>
+#include "osg_markers/text_view_facing_marker.h"
+#include "osg_markers/triangle_list_marker.h"
+#include "osg_markers/mesh_resource_marker.h"
 
 #include <osg/PositionAttitudeTransform>
 

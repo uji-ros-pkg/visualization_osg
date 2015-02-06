@@ -36,7 +36,7 @@
 #include "draggers.h"
 #include <osgManipulator/Selection>
 
-#include <marker_base.h>
+#include <osg_markers/marker_base.h>
 
 #include <boost/shared_ptr.hpp>
 

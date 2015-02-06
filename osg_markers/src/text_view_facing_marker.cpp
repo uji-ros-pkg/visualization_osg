@@ -30,7 +30,7 @@
  */
 
 #include <ros/assert.h>
-#include "text_view_facing_marker.h"
+#include "osg_markers/text_view_facing_marker.h"
 
 #include <osg/Vec3>
 #include <osg/Quat>

@@ -32,7 +32,7 @@
 
 #include <ros/assert.h>
 
-#include "shape_marker.h"
+#include "osg_markers/shape_marker.h"
 #include <osg/Shape>
 #include <osg/Geode>
 #include <osg/PositionAttitudeTransform>

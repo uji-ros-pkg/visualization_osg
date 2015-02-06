@@ -30,7 +30,7 @@
  */
 
 #include <ros/assert.h>
-#include "triangle_list_marker.h"
+#include "osg_markers/triangle_list_marker.h"
 #include <osg/PositionAttitudeTransform>
 
 

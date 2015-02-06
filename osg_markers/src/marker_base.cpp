@@ -29,7 +29,7 @@
  * - May 2012: Port to OpenSceneGraph. Mario Prats
  */
 
-#include "marker_base.h"
+#include "osg_markers/marker_base.h"
 
 #include <tf/tf.h>
 #include <tf/transform_listener.h>

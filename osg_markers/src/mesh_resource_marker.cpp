@@ -31,7 +31,7 @@
 
 
 #include <ros/assert.h>
-#include "mesh_resource_marker.h"
+#include "osg_markers/mesh_resource_marker.h"
 #include <ros/package.h>
 #include <osgDB/ReadFile>
 

@@ -30,7 +30,7 @@
  */
 
 
-#include "arrow_marker.h"
+#include "osg_markers/arrow_marker.h"
 
 
 #include <tf/transform_listener.h>
