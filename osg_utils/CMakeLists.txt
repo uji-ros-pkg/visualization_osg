@@ -23,6 +23,12 @@ add_library(${PROJECT_NAME}
 )
 
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+
+configure_file(osgUtilsConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/lib/${CMAKE_PROJECT_NAME}Config.cmake @ONLY)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib/${CMAKE_PROJECT_NAME}Config.cmake 
+        DESTINATION share/${CMAKE_PROJECT_NAME} )
+
 install(
 TARGETS
 ${PROJECT_NAME}

@@ -28,7 +28,15 @@ add_library(${PROJECT_NAME}
   src/mesh_resource_marker.cpp
 )
 
+target_link_libraries( ${PROJECT_NAME} ${catkin_LIBRARIES})
+
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+
+configure_file(osgMarkersConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/lib/${CMAKE_PROJECT_NAME}Config.cmake @ONLY)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib/${CMAKE_PROJECT_NAME}Config.cmake 
+        DESTINATION share/${CMAKE_PROJECT_NAME} )
+
 install(
 TARGETS
 ${PROJECT_NAME}
