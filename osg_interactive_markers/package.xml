@@ -3,7 +3,7 @@
     This package is basically an OpenSceneGraph (OSG) adaptation of the Interactive Markers client writen for rviz/Ogre.
   </description>
   <name>osg_interactive_markers</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <author email="marioprats@gmail.com">Mario Prats</author>
 

@@ -3,7 +3,7 @@
     osg_markers can be used to create Markers geometry in OSG.
   </description>
   <name>osg_markers</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <author email="marioprats@gmail.com">Mario Prats</author>
 

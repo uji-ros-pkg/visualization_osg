@@ -2,8 +2,8 @@
 Changelog for package osg_interactive_markers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1 (2015-06-11)
+------------------
 * catkin_make_isolated compatibility
 * catkinizing package
 * osg_interactive_markers: fixed bug that published world tranform feedback instead of local transform
