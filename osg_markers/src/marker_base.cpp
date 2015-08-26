@@ -46,6 +46,8 @@ MarkerBase::MarkerBase(osg::Node* parent_node)
 	scene_node_->setName("MarkerBase Scale PAT");
 	base_node_->asGroup()->addChild(scene_node_);
 	message_.reset();
+
+        scale_base_node=1.0;
 }
 
 MarkerBase::~MarkerBase()
@@ -83,7 +85,14 @@ void MarkerBase::setOrientation( const osg::Quat& orientation )
 
 void MarkerBase::setScale( const osg::Vec3d& scale )
 {
-	scene_node_->asTransform()->asPositionAttitudeTransform()->setScale(scale);
+	scene_node_->asTransform()->asPositionAttitudeTransform()->setScale(scale*scale_base_node);
+}
+
+
+void MarkerBase::setScaleBase( double scale )
+{
+        scale_base_node=scale;
+	scene_node_->asTransform()->asPositionAttitudeTransform()->setScale(getScale()*scale_base_node);
 }
 
 const osg::Vec3d& MarkerBase::getPosition()
@@ -99,6 +108,12 @@ const osg::Quat& MarkerBase::getOrientation()
 const osg::Vec3d& MarkerBase::getScale()
 {
 	return scene_node_->asTransform()->asPositionAttitudeTransform()->getScale();
+
+}
+
+const double MarkerBase::getScaleBase()
+{
+	return scale_base_node;
 
 }
 

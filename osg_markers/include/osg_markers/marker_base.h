@@ -62,15 +62,21 @@ public:
 	virtual void setPosition( const osg::Vec3d& position );
 	virtual void setOrientation( const osg::Quat& orientation );
 	virtual void setScale( const osg::Vec3d& scale);
+	virtual void setScaleBase( double scale);
 	const osg::Vec3d& getPosition();
 	const osg::Quat& getOrientation();
 	const osg::Vec3d& getScale();
+	const double getScaleBase();
+
+	osg::ref_ptr<osg::Node> scene_node_;
 
 protected:
 	virtual void onNewMessage(const MarkerConstPtr& old_message, const MarkerConstPtr& new_message) = 0;
 
 	osg::ref_ptr<osg::Node> base_node_;
-	osg::ref_ptr<osg::Node> scene_node_;
+
+        //set a Scale from the base that will be applied to the object in order to have a correct marker size
+        double scale_base_node;
 
 	MarkerConstPtr message_;
 };

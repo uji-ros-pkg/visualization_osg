@@ -45,6 +45,8 @@
 #include <osg_utils/osg_utils.h>
 #include <osg/Plane>
 
+#include <osg/ComputeBoundsVisitor>
+
 namespace osg_interactive_markers
 {
 
@@ -180,6 +182,22 @@ InteractiveMarkerControl::InteractiveMarkerControl(  const visualization_msgs::I
 		if (marker) {
 			marker->setMessage(message.markers[i]);
 			markers_.push_back(marker);
+			//Apply scale to draggers of mesh resources to keep the right scale in the object.
+                        if(message.markers[i].type== visualization_msgs::Marker::MESH_RESOURCE){
+
+                          osg::ComputeBoundsVisitor cbv;
+                          marker->scene_node_->accept(cbv);
+                          osg::BoundingBox box = cbv.getBoundingBox();
+
+			  double scale= std::max( std::max ( fabs(box.xMax()-box.xMin()) + fabs(box.xMax()+box.xMin())/2 ,fabs(box.yMax()-box.yMin())+ fabs(box.yMax()+box.yMin())/2 )
+					 ,fabs(box.zMax()-box.zMin()) + fabs(box.zMax()+box.zMin())/2 ) *1.2;
+
+                          marker->setScaleBase( 1.0/scale );
+                          osg::Vec3 trans = int_marker_node->getMatrix().getTrans();
+                          int_marker_node->setMatrix( osg::Matrix::scale(osg::Vec3(scale,scale,scale)) * osg::Matrix::translate(trans) );
+                        }
+
+
 		}
 	}
 
