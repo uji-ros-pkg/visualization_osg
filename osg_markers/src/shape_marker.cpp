@@ -101,8 +101,7 @@ void ShapeMarker::onNewMessage( const MarkerConstPtr& old_message,
 	setOrientation(orient);
 	setScale(scale);
 
-	//shape_->setColor(new_message->color.r, new_message->color.g,
-	//new_message->color.b, new_message->color.a);
+	setColor(osg::Vec4d(new_message->color.r, new_message->color.g,new_message->color.b, new_message->color.a));
 }
 
 }

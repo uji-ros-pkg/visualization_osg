@@ -120,6 +120,8 @@ void MeshResourceMarker::onNewMessage(const MarkerConstPtr& old_message, const M
 	setPosition(pos);
 	setOrientation(orient);
 	setScale(scale);
+
+	setColor(osg::Vec4d(new_message->color.r, new_message->color.g,new_message->color.b, new_message->color.a));
 }
 
 

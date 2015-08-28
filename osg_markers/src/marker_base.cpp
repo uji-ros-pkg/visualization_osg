@@ -36,6 +36,7 @@
 
 #include <osg/PositionAttitudeTransform>
 #include <osg/MatrixTransform>
+#include <osg/Material>
 
 namespace osg_markers {
 
@@ -93,6 +94,12 @@ void MarkerBase::setScaleBase( double scale )
 {
         scale_base_node=scale;
 	scene_node_->asTransform()->asPositionAttitudeTransform()->setScale(getScale()*scale_base_node);
+}
+
+void MarkerBase::setColor( const osg::Vec4d& color ){
+      	osg::ref_ptr < osg::Material > material = new osg::Material();
+      	material->setDiffuse(osg::Material::FRONT_AND_BACK,color);
+      	scene_node_->getOrCreateStateSet()->setAttribute(material);
 }
 
 const osg::Vec3d& MarkerBase::getPosition()

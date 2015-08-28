@@ -37,8 +37,6 @@
 #include <osg/PositionAttitudeTransform>
 #include <osg/Shape>
 #include <osg/ShapeDrawable>
-#include <osg/StateSet>
-#include <osg/Material>
 
 
 namespace osg_markers
@@ -58,9 +56,6 @@ protected:
 	osg::ref_ptr<osg::Cylinder> cylinder_shape_;
 	osg::ref_ptr<osg::ShapeDrawable> cylinder_drawable_;
 	osg::ref_ptr<osg::PositionAttitudeTransform> arrow_;
-
-	osg::ref_ptr<osg::StateSet> arrow_stateset_;
-	osg::ref_ptr<osg::Material> arrow_material_;
 };
 
 }

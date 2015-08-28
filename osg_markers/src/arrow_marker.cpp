@@ -52,11 +52,6 @@ ArrowMarker::ArrowMarker( osg::Node* parent_node)
 	osg::Geode *geode = new osg::Geode();
 	geode->addDrawable(cylinder_drawable_);
 	geode->addDrawable(cone_drawable_);
-	arrow_stateset_ = new osg::StateSet();
-	arrow_material_ = new osg::Material();
-	arrow_material_->setDiffuse(osg::Material::FRONT_AND_BACK, osg::Vec4(1,1,1,1));
-	arrow_stateset_->setAttribute(arrow_material_);
-	geode->setStateSet(arrow_stateset_);
 
 	arrow_=new osg::PositionAttitudeTransform();
 	arrow_->asGroup()->addChild(geode);
@@ -85,7 +80,7 @@ void ArrowMarker::onNewMessage(const MarkerConstPtr& old_message, const MarkerCo
 	setOrientation( orient );
     //setScale(scale);	
 
-	arrow_material_->setDiffuse(osg::Material::FRONT_AND_BACK, osg::Vec4(new_message->color.r, new_message->color.g, new_message->color.b, new_message->color.a));
+	setColor(osg::Vec4d(new_message->color.r, new_message->color.g,new_message->color.b, new_message->color.a));
 
 	// compute translation & rotation from the two points
 	if (new_message->points.size() == 2)

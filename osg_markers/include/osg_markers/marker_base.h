@@ -63,6 +63,7 @@ public:
 	virtual void setOrientation( const osg::Quat& orientation );
 	virtual void setScale( const osg::Vec3d& scale);
 	virtual void setScaleBase( double scale);
+	virtual void setColor( const osg::Vec4d& color );
 	const osg::Vec3d& getPosition();
 	const osg::Quat& getOrientation();
 	const osg::Vec3d& getScale();
