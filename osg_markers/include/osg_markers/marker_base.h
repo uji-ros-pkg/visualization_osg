@@ -64,9 +64,9 @@ public:
 	virtual void setScale( const osg::Vec3d& scale);
 	virtual void setScaleBase( double scale);
 	virtual void setColor( const osg::Vec4d& color );
-	const osg::Vec3d& getPosition();
-	const osg::Quat& getOrientation();
-	const osg::Vec3d& getScale();
+	const osg::Vec3d getPosition();
+	const osg::Quat getOrientation();
+	const osg::Vec3d getScale();
 	const double getScaleBase();
 
 	osg::ref_ptr<osg::Node> scene_node_;

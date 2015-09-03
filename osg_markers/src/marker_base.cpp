@@ -102,17 +102,17 @@ void MarkerBase::setColor( const osg::Vec4d& color ){
       	scene_node_->getOrCreateStateSet()->setAttribute(material);
 }
 
-const osg::Vec3d& MarkerBase::getPosition()
+const osg::Vec3d MarkerBase::getPosition()
 {
 	return base_node_->asTransform()->asMatrixTransform()->getMatrix().getTrans();
 }
 
-const osg::Quat& MarkerBase::getOrientation()
+const osg::Quat MarkerBase::getOrientation()
 {
 	return base_node_->asTransform()->asMatrixTransform()->getMatrix().getRotate();
 }
 
-const osg::Vec3d& MarkerBase::getScale()
+const osg::Vec3d MarkerBase::getScale()
 {
 	return scene_node_->asTransform()->asPositionAttitudeTransform()->getScale();
 
