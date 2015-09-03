@@ -92,7 +92,7 @@ public:
 	void startDragging();
 	void stopDragging();
 
-	const osg::Vec3d& getPosition() { return position_; }
+	const osg::Vec3d getPosition() { return position_; }
 	const osg::Quat& getOrientation() { return orientation_; }
 
 	float getSize() { return scale_; }
