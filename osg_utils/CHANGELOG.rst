@@ -2,6 +2,9 @@
 Changelog for package osg_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.0.1 (2015-06-11)
 ------------------
 * catkin_make_isolated compatibility

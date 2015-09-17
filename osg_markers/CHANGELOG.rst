@@ -2,6 +2,13 @@
 Changelog for package osg_markers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fixed return to temporary object, marker was returning references to copied objects
+* Fixed some issues with color in markers
+* Now mesh interactive markers autoscale to mesh size.
+* Contributors: perezsolerj
+
 1.0.1 (2015-06-11)
 ------------------
 * catkin_make_isolated compatibility
