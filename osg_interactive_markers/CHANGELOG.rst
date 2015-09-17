@@ -2,8 +2,8 @@
 Changelog for package osg_interactive_markers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.2 (2015-09-17)
+------------------
 * Changed return type to object, as osg was internally creating a copy (temporary reference return)
 * Now mesh interactive markers autoscale to mesh size.
 * Contributors: perezsolerj
