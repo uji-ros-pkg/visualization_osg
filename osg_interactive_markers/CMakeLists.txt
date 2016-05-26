@@ -25,7 +25,7 @@ DEPENDS
 FIND_PACKAGE ( OpenSceneGraph COMPONENTS osgSim osgUtil osgDB osgFX osgGA osgTerrain osgViewer osgText osgWidget osgManipulator osg)
 
 #link_directories(${VISP_LIBRARY_DIRS} ${Boost_LIBRARY_DIRS})
-include_directories(include ${catkin_INCLUDE_DIRS} ${OSGMARKERS_INCLUDE_DIRS} ${OSGUTILS_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS} ${osg_markers_INCLUDE_DIRS} ${osg_utils_INCLUDE_DIRS})
 add_library(${PROJECT_NAME}
   src/interactive_marker_client.cpp
   src/interactive_marker_display.cpp
@@ -34,22 +34,22 @@ add_library(${PROJECT_NAME}
   src/draggers.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OPENSCENEGRAPH_LIBRARIES} ${OSGUTILS_LIBRARIES} ${OSGMARKERS_LIBRARIES} -lGLU )
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OPENSCENEGRAPH_LIBRARIES} ${osg_utils_LIBRARIES} ${osg_markers_LIBRARIES} -lGLU )
 
 add_executable(osg_interactive_markers_demo examples/osg_interactive_markers_demo.cpp)
-target_link_libraries(osg_interactive_markers_demo ${PROJECT_NAME} ${catkin_LIBRARIES} ${OPENSCENEGRAPH_LIBRARIES} ${OSGUTILS_LIBRARIES} ${OSGMARKERS_LIBRARIES} -lGLU )
+target_link_libraries(osg_interactive_markers_demo ${PROJECT_NAME} ${catkin_LIBRARIES} ${OPENSCENEGRAPH_LIBRARIES} ${osg_utils_LIBRARIES} ${osg_markers_LIBRARIES} -lGLU )
 
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
 
 configure_file(osgInteractiveMarkersConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/lib/${CMAKE_PROJECT_NAME}Config.cmake @ONLY)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib/${CMAKE_PROJECT_NAME}Config.cmake 
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib/${CMAKE_PROJECT_NAME}Config.cmake
         DESTINATION share/${CMAKE_PROJECT_NAME} )
 
 install(
 TARGETS
-osg_interactive_markers_demo 
+osg_interactive_markers_demo
 ${PROJECT_NAME}
 ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
