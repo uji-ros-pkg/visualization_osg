@@ -4,6 +4,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   tf
   interactive_markers
+  osg_markers
+  osg_utils
 )
 
 find_package(osg_utils REQUIRED)
